@@ -71,46 +71,47 @@ public class TestCountry {
       //                        canada (2013 to 2020): -1.00 
       
 
-//      /////////////
-//      // Data Set 2
-//      //
-//      System.out.println("Data Set 2:");
-//
-//      final String FILENAME = "data/cellular.csv";
-//
-//      CSVReader parser = new CSVReader(FILENAME);
-//
-//      String [] countryNames = parser.getCountryNames();
-//      int [] yearLabels = parser.getYearLabels();
-//      double [][] dataTable = parser.getParsedTable();      
-//
-//      // Create and set objects of type Country 
-//      //
-//      countries = new Country[countryNames.length];
-//      
-//      for (int countryIndex = 0; countryIndex < countries.length; countryIndex++)
-//      {
-//         int numberOfYears = yearLabels.length;   // OR numberOfYears = dataTable[countryIndex].length;
-//
-//         current = new Country(countryNames[countryIndex], numberOfYears);
-//               
-//         for (int yearIndex = 0; yearIndex < numberOfYears; yearIndex++)
-//         {
-//            double [] tmp = dataTable[countryIndex];
-//            double data = tmp[yearIndex];
-//            current.addSubscriptionYear(yearLabels[yearIndex], data);
-//         }
-//         countries[countryIndex] = current;
-//      }
-//         
-//      
-//      System.out.printf(countryNames[0] + " (1960 to 2012): %.2f \n", countries[0].getNumSubscriptionsForPeriod(1960,2012));
-//      // the output is: Aruba (1960 to 2012): 1170.50 
-//
-//      System.out.printf(countryNames[100] + " (1960 to 2012): %.2f \n", countries[100].getNumSubscriptionsForPeriod(1960,2012));
-//      // the output is: Hungary (1960 to 2012): 1246.58 
-//      
-//      System.out.printf(countryNames[200] + " (1960 to 2012): %.2f \n", countries[200].getNumSubscriptionsForPeriod(1960,2012));
-//      // the output is: Singapore (1960 to 2012): 1582.80
+      /////////////
+      // Data Set 2
+      //
+      System.out.println("Data Set 2:");
+
+      final String FILENAME = "data/cellular.csv";
+
+      CSVReader parser = new CSVReader(FILENAME);
+
+      String [] countryNames = parser.getCountryNames();
+      int [] yearLabels = parser.getYearLabels();
+      double [][] dataTable = parser.getParsedTable();      
+
+      // Create and set objects of type Country 
+      //
+      countries = new Country[countryNames.length];
+      
+      for (int countryIndex = 0; countryIndex < countries.length; countryIndex++)
+      {
+         int numberOfYears = yearLabels.length;   // OR numberOfYears = dataTable[countryIndex].length;
+
+         current = new Country(countryNames[countryIndex], numberOfYears);
+               
+         for (int yearIndex = 0; yearIndex < numberOfYears; yearIndex++)
+         {
+            double [] tmp = dataTable[countryIndex];
+            double data = tmp[yearIndex];
+            current.addSubscriptionYear(yearLabels[yearIndex], data);
+         }
+         countries[countryIndex] = current;
+      }
+         
+      System.out.println(parser);
+      
+      System.out.printf(countryNames[0] + " (1960 to 2012): %.2f \n", countries[0].getNumSubscriptionsForPeriod(1960,2012));
+      // the output is: Aruba (1960 to 2012): 1170.50 
+
+      System.out.printf(countryNames[100] + " (1960 to 2012): %.2f \n", countries[100].getNumSubscriptionsForPeriod(1960,2012));
+      // the output is: Hungary (1960 to 2012): 1246.58 
+      
+      System.out.printf(countryNames[200] + " (1960 to 2012): %.2f \n", countries[200].getNumSubscriptionsForPeriod(1960,2012));
+      // the output is: Singapore (1960 to 2012): 1582.80
    }
 }

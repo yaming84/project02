@@ -29,8 +29,13 @@ public class Country
    public void addSubscriptionYear(int year, double newSubscriptions)
    {
       SubscriptionYear subscriptionYear = new SubscriptionYear(year, newSubscriptions);
-      int n = year - 1983;
-      subscriptions[n] = subscriptionYear;
+//      int n = year - 1960;
+//      subscriptions[n] = subscriptionYear;
+      
+      int n = 0;
+      while (subscriptions[n] != null)
+         n++;
+      subscriptions[n] = subscriptionYear;  
    }
    
    /**
@@ -46,7 +51,8 @@ public class Country
       
       try
       {
-      for (int i = 0; i <= endingYear - startingYear; i++)
+         int lengthForPeriod = endingYear - startingYear; 
+      for (int i = 0; i <= lengthForPeriod; i++)
       {
          sum += subscriptions[i].getNumberOfSubscriptions();
       }
